@@ -6,19 +6,20 @@ const roundSymbol = document.querySelector('.round__symbol')
 
 
 
+// Clicked button
 roundSymbol.addEventListener('click', generateNewQuote)
 
+
+//Async function
 async function generateNewQuote () {
+
   try{
    const res = await fetch(`https://api.adviceslip.com/advice`);
     const data = await res.json()
-    // console.log('clicked');
-    // console.log(res);
-    console.log(data);
 
     displayData(data)
-    cache: 'no-cache';
     if(!res.ok) throw new Error(`Can't fetch data 💥 ${res.status}`);
+
   } catch (err){
     console.error(` ${err.message}`)
     console.error(` ${err}`)
@@ -26,9 +27,11 @@ async function generateNewQuote () {
 }
 
 
+//Function to render data
 function displayData(data){
   const apiData = data?.slip
 
   advice__Number.textContent = `${apiData?.id}`
+
   quote__content.innerHTML = `<p>"${apiData?.advice}"</p>`
 }

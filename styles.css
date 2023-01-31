@@ -85,7 +85,7 @@ body{
    width: 1.4rem; 
 }
 
-.round__symbol:hover{
+.round__symbol:active{
   box-shadow: -1px 1px 28px 8px rgba(82, 255, 168, 1);
 }
 
